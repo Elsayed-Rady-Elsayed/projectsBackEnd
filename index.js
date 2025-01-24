@@ -5,7 +5,7 @@ const app = new express();
 const projects = require("./modules/project")
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://sayed:012301050180@arch-mohamed.23gtb.mongodb.net/?retryWrites=true&w=majority&appName=arch-mohamed").then(()=>{
+mongoose.connect(process.env.MONGODB_URI).then(()=>{
     app.post("/project",async(req,res)=>{
         try{
             const project = new projects();
