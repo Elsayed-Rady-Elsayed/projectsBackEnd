@@ -19,6 +19,18 @@ mongoose
 app.get("/", (req, res) => {
     res.send("Welcome to the API!");
 });
+app.get("/s",async (req, res) => {
+    try {
+        const project = new projects();
+        const body = req.body;
+        project.mainImage = body.mainImage;
+        project.title = body.title;
+        project.desc = body.desc;
+        await project.save();
+        res.send(project);
+    } catch (e) {
+        res.status(500).send(e.message);
+    }});
 
 app.all("*", (req, res) => {
     res.status(404).send("Route not found");
