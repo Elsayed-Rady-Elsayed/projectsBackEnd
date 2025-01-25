@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 
 const app = express();
 const projects = require("./modules/project");
+const cors = require('cors');
+app.use(cors());
 
 app.use(express.json());
 
