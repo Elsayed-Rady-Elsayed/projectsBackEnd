@@ -62,6 +62,7 @@ app.get("/project/:id", async (req, res) => {
         res.status(500).send(e.message);
     }
 });
+
 app.put("/project/:id", async (req, res) => {
     const updateData = {
         title: req.body.title,
