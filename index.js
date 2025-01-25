@@ -18,6 +18,10 @@ app.get("/", (req, res) => {
     res.send("Welcome to the API!");
 });
 
+app.all("*", (req, res) => {
+    res.status(404).send("Route not found");
+});
+
 app.post("/project", async (req, res) => {
     try {
         const project = new projects();
